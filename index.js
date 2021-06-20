@@ -33,6 +33,17 @@ client.connect((err) => {
     });
   });
 
+  app.get('/book/:id', (req, res) => {
+    const id= ObjectID (req.params.id);
+    console.log('find this', id);
+
+    bookCollection.find({_id: req.params.id})
+    .toArray((err, documents) => {
+      res.send(documents)
+      console.log('documents from', documents);
+    })
+  })
+
   app.post("/addBook", (req, res) => {
     // const newBook = req.body;
     console.log(req.body);
