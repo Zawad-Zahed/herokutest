@@ -33,18 +33,17 @@ client.connect((err) => {
     });
   });
 
-  app.get('/book/:id', (req, res) => {
-    const id= ObjectID (req.params.id);
-    console.log('find this', id);
+  app.get("/book/:id", (req, res) => {
+    const id = ObjectID(req.params.id);
+    console.log("find this", id);
 
-    bookCollection.find({_id: req.params.id})
-    .toArray((err, documents) => {
-      res.send(documents)
-      console.log('documents from', documents);
-    })
-  })
+    bookCollection.find({ _id: req.params.id }).toArray((err, documents) => {
+      res.send(documents);
+      console.log("documents from", documents);
+    });
+  });
 
-  app.post("/addBook", (req, res) => {
+  app.post("/addBookOrder", (req, res) => {
     // const newBook = req.body;
     console.log(req.body);
     bookCollection.insertOne(req.body).then((result) => {
@@ -67,5 +66,7 @@ client.connect((err) => {
 });
 
 app.listen(process.env.PORT || port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(
+    `Example app listening at https://serene-reef-03269.herokuapp.com:${port}`
+  );
 });
