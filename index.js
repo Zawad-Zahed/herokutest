@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Welcome To Amader Boi Ghorf");
+  res.send("Welcome To Amader Boi Ghor");
 });
 
 console.log("new", process.env.DB_USER);
